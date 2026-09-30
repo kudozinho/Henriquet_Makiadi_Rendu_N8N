@@ -28,6 +28,20 @@ Couvre ces 6 points, dans cet ordre, en sautant ceux qui sont déjà clairs :
 | **Les cas d'erreur** | Que doit-il se passer si une source manque, si les données sont fausses, si ça plante ? |
 | **Hors périmètre** | Qu'est-ce qu'on ne fait volontairement **pas** ? |
 
+## Vérifier les versions avant de proposer (modèles d'IA, API, outils)
+
+Tes connaissances ont une date limite : les modèles d'IA et les API changent tous les quelques mois. Avant de proposer une option par défaut qui cite une **version** (modèle d'IA, modèle d'embeddings, version d'API, de SDK ou de nœud), vérifie-la. Ne t'appuie pas sur ta mémoire.
+
+1. **Consulte la source officielle** : la page des modèles du fournisseur (ex. `ai.google.dev/gemini-api/docs/models`, `platform.openai.com/docs/models`, `docs.anthropic.com/en/docs/about-claude/models`), ou la liste proposée par l'outil lui-même (le menu déroulant « Model » de n8n, `--help`, `npm view <paquet> versions`).
+2. **Propose la version la plus récente disponible pour l'utilisateur**, en tenant compte :
+   - des modèles **restreints ou dépréciés** (certains ne sont plus ouverts aux nouveaux projets) ;
+   - de l'**offre de l'utilisateur** (quota gratuit, limite de requêtes par minute et par jour) ;
+   - du compromis entre un **alias** `-latest` (toujours à jour, mais son comportement peut changer sans prévenir) et une **version figée** (stable, à mettre à jour à la main).
+3. **Pour un RAG, impose le même modèle d'embeddings** à l'ingestion et à la recherche. Deux modèles différents produisent des vecteurs incompatibles.
+4. **Écris dans la fiche de cadrage** la version choisie, la date de vérification et la source.
+
+Si tu ne peux pas vérifier, par exemple sans accès web, dis-le explicitement, et demande à l'utilisateur de choisir dans la liste de son outil.
+
 ## Écrire de bons objectifs
 
 Un bon objectif est **SMART** : spécifique, mesurable, atteignable, pertinent, borné dans le temps.
@@ -78,6 +92,11 @@ Termine toujours par cette fiche, puis demande : « Je valide et je commence ? �
 
 ## Contraintes
 - ...
+
+## Versions retenues (vérifiées le <date>, source : <lien>)
+- Modèle d'IA : ...
+- Modèle d'embeddings (identique à l'ingestion et à la recherche) : ...
+- Outils / API : ...
 
 ## Hors périmètre
 - ...
